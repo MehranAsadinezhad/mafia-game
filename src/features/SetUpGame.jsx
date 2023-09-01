@@ -1,7 +1,10 @@
 import React from 'react'
+import Header from "./Header";
 
 export default function SetUpGame() {
   return (
-    <div>SetUpGame</div>
+    <div>
+      <Header/>
+    </div>
   )
 }

@@ -2,3 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: vazir;
+  src: url(./assets/fonts/Vazir.ttf) format('opentype');
+  font-family: shabnam;
+  src: url(./assets/fonts/Shabnam.ttf) format('opentype');
+}
+
+body {
+  background-color: #343a40;
+  direction: rtl;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}

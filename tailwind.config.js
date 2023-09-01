@@ -13,7 +13,10 @@ export default {
         orange: "#ffa94d",
       },
       screens: {},
-      fontFamily: {},
+      fontFamily: {
+        primary:'vazir',
+        secondary:'shabnam'
+      },
     },
   },
   plugins: [],
