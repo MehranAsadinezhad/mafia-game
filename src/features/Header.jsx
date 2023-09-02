@@ -3,7 +3,7 @@ import logo from "../assets/images/logo.png";
 
 export default function Header() {
   return (
-    <div className="p-2 flex items-center justify-center">
+    <div className="p-2 flex items-center justify-center h-28">
       <h1 className="text-medium font-secondary ml-5 text-3xl tracking-widest">
         پارتی گیم
       </h1>

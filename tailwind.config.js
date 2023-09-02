@@ -14,8 +14,8 @@ export default {
       },
       screens: {},
       fontFamily: {
-        primary:'vazir',
-        secondary:'shabnam'
+        primary: "vazir",
+        secondary: "shabnam",
       },
     },
   },
