@@ -1,5 +1,4 @@
 import React, { useRef, useState } from "react";
-import Input from "../ui/Input";
 import Button from "../ui/Button";
 
 export default function PlayerSide({
@@ -18,7 +17,7 @@ export default function PlayerSide({
       className="mx-2 w-1/2"
       onSubmit={(e) => {
         e.preventDefault();
-        if (inp.current.value === "")return
+        if (inp.current.value === "") return;
         dispatch({ type: "addPlayer", payload: name });
         inp.current.value = "";
       }}
@@ -36,28 +35,27 @@ export default function PlayerSide({
         <Button>+</Button>
       </div>
       {players.length > 0 && (
-        <ul className="mx-2 my-4 rounded-lg bg-dark p-2 py-3">
-          {players.map((player) => (
+        <ol className="mx-2 my-4 list-decimal rounded-lg bg-dark px-2 py-3">
+          {players.map((player,index) => (
             <li
               key={player.id}
               className="mb-3 flex items-center justify-between"
             >
               <button
-                type="button"
+                className="rounded-full bg-darkest px-3 py-1 font-secondary text-light focus:ring-2 focus:ring-orange"
                 onClick={() =>
                   dispatch({
                     type: "selectPlayer",
                     payload: player.player,
-                    filter: players.filter((e) => e.id !== player.id),
+                    id: player.id,
                   })
                 }
-                className="rounded-full bg-darkest px-3 py-1 font-secondary text-light focus:ring-2 focus:ring-orange"
               >
-                {player.player}
+                {index + 1}- {player.player}
               </button>
             </li>
           ))}
-        </ul>
+        </ol>
       )}
     </form>
   );

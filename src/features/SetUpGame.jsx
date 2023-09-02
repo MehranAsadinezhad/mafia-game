@@ -2,6 +2,7 @@ import React from "react";
 import Header from "./Header";
 import PlayerSide from "./PlayerSide";
 import RoleSide from "./RoleSide";
+import Button from "../ui/Button";
 
 export default function SetUpGame({
   players,
@@ -11,6 +12,7 @@ export default function SetUpGame({
   selectedRole,
   allNamesRoles,
   dispatch,
+  selectedId,
 }) {
   return (
     <div>
@@ -21,6 +23,7 @@ export default function SetUpGame({
           status={status}
           players={players}
           roles={roles}
+          selectedId={selectedId}
           selectedPlayer={selectedPlayer}
           selectedRole={selectedRole}
           allNamesRoles={allNamesRoles}
@@ -30,11 +33,17 @@ export default function SetUpGame({
           status={status}
           players={players}
           roles={roles}
+          selectedId={selectedId}
           selectedPlayer={selectedPlayer}
           selectedRole={selectedRole}
           allNamesRoles={allNamesRoles}
         />
       </div>
+      {allNamesRoles.length > 6 && (
+        <div className="flex h-44 items-center justify-center">
+          <button onClick={()=>dispatch({type:'start'})} className="rounded-ful my-3 rounded-full font-secondary bg-cyan ring-2 ring-orange outline-none text-center px-9 py-3 text-xl text-orange">💣 برو بریم</button>
+        </div>
+      )}
     </div>
   );
 }

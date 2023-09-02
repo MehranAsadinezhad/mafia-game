@@ -9,6 +9,7 @@ const initialState = {
   roles: [],
   selectedPlayer: "",
   selectedRole: "",
+  selectedId: "",
   allNamesRoles: [],
 };
 
@@ -17,7 +18,11 @@ function reducer(state, action) {
     case "addPlayer":
       return { ...state, players: [...state.players, action.payload] };
     case "selectPlayer":
-      return { ...state, selectedPlayer: action.payload, players: action.filter };
+      return {
+        ...state,
+        selectedPlayer: action.payload,
+        selectedId: action.id,
+      };
     case "addRole":
       return { ...state, roles: [...state.roles, action.payload] };
     case "selectRole":
@@ -25,21 +30,31 @@ function reducer(state, action) {
         ...state,
         selectedRole: action.payload,
         allNamesRoles: [...state.allNamesRoles, action.loadpay],
-        roles: action.filter,
+        roles: action.Rfilter,
+        players: action.Pfilter,
       };
     case "recordRole":
-      return { ...state, selectedRole: "", selectedPlayer: "" };
+      return { ...state, selectedRole: "", selectedPlayer: "", selectedId: "" };
+    case "start":
+      return { ...state, status: "start" };
     default:
       throw new Error("invalid action type");
   }
 }
 function App() {
   const [
-    { status, players, roles, selectedPlayer, selectedRole, allNamesRoles },
+    {
+      status,
+      players,
+      roles,
+      selectedPlayer,
+      selectedRole,
+      allNamesRoles,
+      selectedId,
+    },
     dispatch,
   ] = useReducer(reducer, initialState);
 
-  // console.log();
   return (
     <>
       {selectedRole ? (
@@ -49,7 +64,7 @@ function App() {
             {selectedRole}
           </h1>
           <button
-            className="rounded-ful my-3 rounded-full bg-cyan px-9 py-3 text-xl text-light"
+            className="rounded-ful my-3 rounded-full bg-cyan px-9 py-3 text-center font-secondary text-xl text-light"
             onClick={() => dispatch({ type: "recordRole" })}
           >
             ثبت
@@ -65,6 +80,7 @@ function App() {
               selectedPlayer={selectedPlayer}
               selectedRole={selectedRole}
               allNamesRoles={allNamesRoles}
+              selectedId={selectedId}
               dispatch={dispatch}
             />
           )}

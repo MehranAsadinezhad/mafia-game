@@ -1,5 +1,4 @@
 import React, { useRef, useState } from "react";
-import Input from "../ui/Input";
 import Button from "../ui/Button";
 import mask from "../assets/images/g.png";
 
@@ -11,6 +10,7 @@ export default function RoleSide({
   selectedRole,
   allNamesRoles,
   dispatch,
+  selectedId
 }) {
   const [role, setRole] = useState({});
   const inp = useRef(null);
@@ -51,7 +51,8 @@ export default function RoleSide({
                     type: "selectRole",
                     payload: role.role,
                     loadpay: record,
-                    filter: roles.filter((e) => e.id !== role.id),
+                    Rfilter: roles.filter((e) => e.id !== role.id),
+                    Pfilter: players.filter((e) => e.id !== selectedId ),
                   });
                 }}
               ></img>
