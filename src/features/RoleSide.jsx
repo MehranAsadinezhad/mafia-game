@@ -20,6 +20,7 @@ export default function RoleSide({
         className="mx-2 w-1/2"
         onSubmit={(e) => {
           e.preventDefault();
+          if (inp.current.value === "") return
           dispatch({ type: "addRole", payload: role });
           inp.current.value = "";
         }}

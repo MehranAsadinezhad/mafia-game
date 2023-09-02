@@ -17,7 +17,7 @@ function reducer(state, action) {
     case "addPlayer":
       return { ...state, players: [...state.players, action.payload] };
     case "selectPlayer":
-      return { ...state, selectedPlayer: action.payload };
+      return { ...state, selectedPlayer: action.payload, players: action.filter };
     case "addRole":
       return { ...state, roles: [...state.roles, action.payload] };
     case "selectRole":
