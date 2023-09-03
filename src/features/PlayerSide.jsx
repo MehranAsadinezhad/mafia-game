@@ -26,7 +26,7 @@ export default function PlayerSide({
         <input
           ref={inp}
           type="text"
-          className="w-24 rounded-full bg-cyan px-2 py-1 text-center font-secondary text-light outline-none transition-all placeholder:text-orange focus:ring-2 focus:ring-orange"
+          className="w-28 rounded-full bg-cyan p-2 text-center font-secondary text-light outline-none transition-all placeholder:text-orange focus:ring-2 focus:ring-orange"
           placeholder="اسامی"
           onChange={(e) => {
             setName({ player: e.target.value, id: Date.now() });
@@ -42,7 +42,7 @@ export default function PlayerSide({
               className="mb-3 flex items-center justify-between"
             >
               <button
-                className="rounded-full bg-darkest px-3 py-1 font-secondary text-light focus:ring-2 focus:ring-orange"
+                className="rounded-full bg-darkest px-3 py-2 font-secondary text-light focus:ring-2 focus:ring-orange"
                 onClick={() =>
                   dispatch({
                     type: "selectPlayer",

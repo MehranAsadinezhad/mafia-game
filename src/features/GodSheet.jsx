@@ -7,6 +7,7 @@ export default function GodSheet({
   status,
 }) {
   const ref = useRef([]);
+  const refLength = ref.current.length;
   console.log(ref);
   const unchecked = () => {
     for (let i = 0; i < ref.current.length; i++) {
@@ -15,25 +16,25 @@ export default function GodSheet({
   };
 
   return (
-    <div className="flex flex-col items-center justify-center">
-      <table className="mx-auto my-4 table-auto">
+    <div className="flex flex-col justify-center">
+      <table className="my-4 table-auto">
         <thead>
-          <tr className="text-center font-secondary text-medium">
+          <tr className="border-b-2 border-cyan text-center font-secondary text-medium">
             <td className="font-bold">بازیکنان</td>
             <td>
-              <span className="mx-1">🔫</span>
+              <span className="py-2">🔫</span>
             </td>
             <td>
-              <span className="mx-1">💖</span>
+              <span className="mx-2 py-2">💖</span>
             </td>
             <td>
-              <span className="mx-1">🔒</span>
+              <span className="mx-2 py-2">🔒</span>
             </td>
             <td>
-              <span className="mx-1">🖐️</span>
+              <span className="mx-2 py-2">🖐️</span>
             </td>
             <td>
-              <span className="mx-1">⚠️</span>
+              <span className="py-2">⚠️</span>
             </td>
           </tr>
         </thead>
@@ -46,11 +47,11 @@ export default function GodSheet({
               className="border-b-2 border-dark text-center font-secondary text-medium"
             >
               <td>
-                <span className="ml-1 text-sm">
-                  {index + 1}-{player.name} / {player.role}
+                <span className="ml-2 font-secondary text-sm">
+                  {index + 1}- {player.name} / {player.role}
                 </span>
                 <button
-                  className="ml-1 rounded-full  transition-all text-xs focus:text-sm focus:px-1"
+                  className="ml-1 rounded-full  text-xs transition-all focus:px-1 focus:text-base"
                   onClick={() => {
                     dispatch({
                       type: "removeNameRole",
@@ -80,7 +81,7 @@ export default function GodSheet({
                   type="checkbox"
                   value="b"
                   ref={(element) => {
-                    ref.current[index + 4] = element;
+                    ref.current[index] = element;
                   }}
                 ></input>
               </td>
@@ -90,7 +91,7 @@ export default function GodSheet({
                   type="checkbox"
                   value="c"
                   ref={(element) => {
-                    ref.current[index + 8] = element;
+                    ref.current[index] = element;
                   }}
                 ></input>
               </td>
@@ -100,7 +101,7 @@ export default function GodSheet({
                   type="checkbox"
                   value="d"
                   ref={(element) => {
-                    ref.current[index + 12] = element;
+                    ref.current[index] = element;
                   }}
                 ></input>
               </td>
@@ -113,14 +114,14 @@ export default function GodSheet({
           ))}
         </tbody>
       </table>
-      <div className="mb-4 flex items-center gap-x-3">
+      <div className="my-4 flex items-center justify-center gap-x-3">
         <textarea
           placeholder="یادداشت وقایع..."
-          className="w-56 rounded-md bg-dark p-2 font-secondary text-sm text-medium outline-none ring-2 ring-cyan transition-all focus:ring-2 focus:ring-orange"
+          className="h-40 w-56 rounded-md bg-dark p-2 font-secondary text-sm text-medium outline-none ring-2 ring-cyan transition-all focus:ring-2 focus:ring-orange"
         ></textarea>
         <button
           onClick={unchecked}
-          className="rounded-full bg-cyan px-2 py-1 font-secondary text-light"
+          className="self-start rounded-full bg-cyan p-2 font-secondary text-light"
         >
           روز بعد
         </button>

@@ -40,7 +40,7 @@ export default function SetUpGame({
       </div>
       {allNamesRoles.length > 6 && (
         <div className="flex h-44 items-center justify-center">
-          <button onClick={()=>dispatch({type:'start'})} className="rounded-ful my-3 rounded-full font-secondary bg-cyan ring-2 ring-orange outline-none text-center px-9 py-3 text-xl text-orange">💣 برو بریم</button>
+          <button onClick={()=>dispatch({type:'start'})} className="rounded-ful my-3 rounded-full font-secondary bg-cyan ring-2 ring-orange outline-none text-center px-9 py-3 text-xl text-light">💣 برو بریم</button>
         </div>
       )}
     </div>

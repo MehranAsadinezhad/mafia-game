@@ -30,7 +30,7 @@ export default function RoleSide({
             ref={inp}
             type="text"
             placeholder="نقش ها"
-            className="w-24 rounded-full bg-cyan px-2 py-1 text-center font-secondary text-light outline-none transition-all placeholder:text-orange focus:ring-2 focus:ring-orange"
+            className="w-28 rounded-full bg-cyan p-2 text-center font-secondary text-light outline-none transition-all placeholder:text-orange focus:ring-2 focus:ring-orange"
             onChange={(e) => {
               setRole({ role: e.target.value, id: Date.now() });
             }}
@@ -38,13 +38,13 @@ export default function RoleSide({
           <Button>+</Button>
         </div>
         {roles.length > 0 && (
-          <div className="mx-2 my-4 flex flex-wrap gap-2 rounded-lg bg-dark p-2 py-3">
+          <div className="mx-2 my-4 flex justify-center flex-wrap gap-2 rounded-lg bg-dark p-2 py-3">
             {roles.map((role) => (
               <img
                 key={role.id}
                 src={mask}
                 alt={role.id}
-                className="h-10 w-10 rounded-full p-1"
+                className="h-14 w-14 rounded-full p-1"
                 onClick={() => {
                   if(!selectedPlayer) return
                   const record = { name: selectedPlayer, role: role.role, id:Date.now() };
