@@ -46,7 +46,8 @@ export default function RoleSide({
                 alt={role.id}
                 className="h-10 w-10 rounded-full p-1"
                 onClick={() => {
-                  const record = { name: selectedPlayer, role: role.role };
+                  if(!selectedPlayer) return
+                  const record = { name: selectedPlayer, role: role.role, id:Date.now() };
                   dispatch({
                     type: "selectRole",
                     payload: role.role,

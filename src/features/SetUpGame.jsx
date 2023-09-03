@@ -2,7 +2,6 @@ import React from "react";
 import Header from "./Header";
 import PlayerSide from "./PlayerSide";
 import RoleSide from "./RoleSide";
-import Button from "../ui/Button";
 
 export default function SetUpGame({
   players,

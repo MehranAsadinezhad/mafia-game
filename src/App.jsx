@@ -11,6 +11,7 @@ const initialState = {
   selectedRole: "",
   selectedId: "",
   allNamesRoles: [],
+  selectedNameRole: "",
 };
 
 function reducer(state, action) {
@@ -37,6 +38,11 @@ function reducer(state, action) {
       return { ...state, selectedRole: "", selectedPlayer: "", selectedId: "" };
     case "start":
       return { ...state, status: "start" };
+    case "removeNameRole":
+      return {
+        ...state,
+        allNamesRoles: action.payload,
+      };
     default:
       throw new Error("invalid action type");
   }
@@ -51,13 +57,14 @@ function App() {
       selectedRole,
       allNamesRoles,
       selectedId,
+      selectedNameRole,
     },
     dispatch,
   ] = useReducer(reducer, initialState);
 
   return (
     <>
-      {selectedRole ? (
+      {selectedRole && selectedPlayer ? (
         <div className="flex h-screen w-screen flex-col items-center justify-center rounded-lg bg-dark p-5 font-secondary  font-bold">
           <img alt="mask" src={mask} className="w-44"></img>
           <h1 className="my-2 w-full rounded-lg bg-light p-3 text-center text-2xl font-semibold text-cyan">
@@ -88,6 +95,7 @@ function App() {
             <GodSheet
               status={status}
               allNamesRoles={allNamesRoles}
+              selectedNameRole={selectedNameRole}
               dispatch={dispatch}
             />
           )}
