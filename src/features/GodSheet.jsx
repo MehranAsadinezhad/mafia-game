@@ -1,13 +1,13 @@
-import React, { useState } from "react";
 import { useRef } from "react";
 
 export default function GodSheet({
   allNamesRoles,
   dispatch,
+  selectedNameRole,
   status,
 }) {
   const ref = useRef([]);
-  const [selectedId, setSelectedId] = useState('');
+  console.log(ref);
   const unchecked = () => {
     for (let i = 0; i < ref.current.length; i++) {
       ref.current[i].checked = false;
@@ -42,26 +42,27 @@ export default function GodSheet({
             <tr
               key={player.name}
               player={player}
+              index={index}
               className="border-b-2 border-dark text-center font-secondary text-medium"
             >
               <td>
                 <span className="ml-1 text-sm">
-                  {player.name} / {player.role}
+                  {index + 1}-{player.name} / {player.role}
                 </span>
-                <span
-                  className="ml-1 rounded-full text-sm"
+                <button
+                  className="ml-1 rounded-full  transition-all text-xs focus:text-sm focus:px-1"
                   onClick={() => {
-                    setSelectedId(player.id);
                     dispatch({
                       type: "removeNameRole",
-                      payload: allNamesRoles.filter(
-                        (player) => player.id !== selectedId,
+                      payload: player.id,
+                      filter: allNamesRoles.filter(
+                        (player) => player.id !== selectedNameRole,
                       ),
                     });
                   }}
                 >
                   ❌
-                </span>
+                </button>
               </td>
               <td>
                 <input
@@ -79,7 +80,7 @@ export default function GodSheet({
                   type="checkbox"
                   value="b"
                   ref={(element) => {
-                    ref.current[index] = element;
+                    ref.current[index + 4] = element;
                   }}
                 ></input>
               </td>
@@ -89,7 +90,7 @@ export default function GodSheet({
                   type="checkbox"
                   value="c"
                   ref={(element) => {
-                    ref.current[index] = element;
+                    ref.current[index + 8] = element;
                   }}
                 ></input>
               </td>
@@ -99,7 +100,7 @@ export default function GodSheet({
                   type="checkbox"
                   value="d"
                   ref={(element) => {
-                    ref.current[index] = element;
+                    ref.current[index + 12] = element;
                   }}
                 ></input>
               </td>

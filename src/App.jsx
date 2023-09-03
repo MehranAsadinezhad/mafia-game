@@ -41,7 +41,8 @@ function reducer(state, action) {
     case "removeNameRole":
       return {
         ...state,
-        allNamesRoles: action.payload,
+        selectedNameRole:action.payload,
+        allNamesRoles: action.filter,
       };
     default:
       throw new Error("invalid action type");
