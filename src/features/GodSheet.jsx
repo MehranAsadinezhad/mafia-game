@@ -1,20 +1,14 @@
-import { useRef } from "react";
+
+import music from "../music.mp3";
 
 export default function GodSheet({
   allNamesRoles,
   dispatch,
   selectedNameRole,
+  playMusic,
   status,
 }) {
-  const ref = useRef([]);
-  const refLength = ref.current.length;
-  console.log(ref);
-  const unchecked = () => {
-    for (let i = 0; i < ref.current.length; i++) {
-      ref.current[i].checked = false;
-    }
-  };
-
+  const audio = new Audio(music);
   return (
     <div className="flex flex-col justify-center">
       <table className="my-4 table-auto">
@@ -66,65 +60,53 @@ export default function GodSheet({
                 </button>
               </td>
               <td>
-                <input
-                  className="my-2"
-                  type="checkbox"
-                  value="a"
-                  ref={(element) => {
-                    ref.current[index] = element;
-                  }}
-                ></input>
+                <input className="my-2" type="checkbox"></input>
               </td>
               <td>
-                <input
-                  className="my-2"
-                  type="checkbox"
-                  value="b"
-                  ref={(element) => {
-                    ref.current[index] = element;
-                  }}
-                ></input>
+                <input className="my-2" type="checkbox"></input>
               </td>
               <td>
-                <input
-                  className="my-2"
-                  type="checkbox"
-                  value="c"
-                  ref={(element) => {
-                    ref.current[index] = element;
-                  }}
-                ></input>
+                <input className="my-2" type="checkbox"></input>
               </td>
               <td>
-                <input
-                  className="my-2"
-                  type="checkbox"
-                  value="d"
-                  ref={(element) => {
-                    ref.current[index] = element;
-                  }}
-                ></input>
+                <input className="my-2" type="checkbox"></input>
               </td>
               <td>
-                <input className="my-2" type="checkbox" value="e"></input>
-                <input className="mx-1 my-2" type="checkbox" value="f"></input>
-                <input className="my-2" type="checkbox" value="g"></input>
+                <input className="my-2" type="checkbox"></input>
+                <input className="mx-1 my-2" type="checkbox"></input>
+                <input className="my-2" type="checkbox"></input>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
-      <div className="my-4 flex items-center justify-center gap-x-3">
+      <div className="my-4 flex items-center justify-center">
         <textarea
           placeholder="یادداشت وقایع..."
           className="h-40 w-56 rounded-md bg-dark p-2 font-secondary text-sm text-medium outline-none ring-2 ring-cyan transition-all focus:ring-2 focus:ring-orange"
         ></textarea>
-        <button
-          onClick={unchecked}
-          className="self-start rounded-full bg-cyan p-2 font-secondary text-light"
-        >
-          روز بعد
-        </button>
+        <div className="flex flex-wrap justify-center gap-y-2 self-start">
+          
+            <button
+              className="mr-2 rounded-full bg-cyan p-1 font-secondary text-light"
+              onClick={() => {
+                audio.play();
+              }}
+            >
+              🎵
+            </button>
+          
+            <button
+              className="mr-2 rounded-full bg-cyan p-1 font-secondary text-light"
+              onClick={() => {
+                audio.pause();
+                
+              }}
+            >
+              ⏸️
+            </button>
+          
+        </div>
       </div>
     </div>
   );

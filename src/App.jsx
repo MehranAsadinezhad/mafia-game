@@ -4,7 +4,7 @@ import GodSheet from "./features/GodSheet";
 import mask from "./assets/images/g.png";
 
 const initialState = {
-  status: "setUp",
+  status: "start",
   players: [],
   roles: [],
   selectedPlayer: "",
@@ -12,6 +12,7 @@ const initialState = {
   selectedId: "",
   allNamesRoles: [],
   selectedNameRole: "",
+  playMusic: false,
 };
 
 function reducer(state, action) {
@@ -41,9 +42,14 @@ function reducer(state, action) {
     case "removeNameRole":
       return {
         ...state,
-        selectedNameRole:action.payload,
+        selectedNameRole: action.payload,
         allNamesRoles: action.filter,
       };
+    case "playMusic":
+      return {...state, playMusic: action.payload}
+    case 'pauseMusic':
+      return {...state, playMusic: action.payload}
+
     default:
       throw new Error("invalid action type");
   }
@@ -59,6 +65,7 @@ function App() {
       allNamesRoles,
       selectedId,
       selectedNameRole,
+      playMusic,
     },
     dispatch,
   ] = useReducer(reducer, initialState);
@@ -98,6 +105,7 @@ function App() {
               allNamesRoles={allNamesRoles}
               selectedNameRole={selectedNameRole}
               dispatch={dispatch}
+              playMusic={playMusic}
             />
           )}
         </>
