@@ -4,7 +4,7 @@ import GodSheet from "./features/GodSheet";
 import mask from "./assets/images/g.png";
 
 const initialState = {
-  status: "start",
+  status: "setUp",
   players: [],
   roles: [],
   selectedPlayer: "",

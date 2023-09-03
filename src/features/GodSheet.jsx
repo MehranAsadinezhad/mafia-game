@@ -88,7 +88,7 @@ export default function GodSheet({
         <div className="flex flex-wrap justify-center gap-y-2 self-start">
           
             <button
-              className="mr-2 rounded-full bg-cyan p-1 font-secondary text-light"
+              className="mr-2 rounded-md bg-cyan p-1 font-secondary text-light"
               onClick={() => {
                 audio.play();
               }}
@@ -97,7 +97,7 @@ export default function GodSheet({
             </button>
           
             <button
-              className="mr-2 rounded-full bg-cyan p-1 font-secondary text-light"
+              className="mr-2 rounded-md bg-cyan p-1 font-secondary text-light"
               onClick={() => {
                 audio.pause();
                 
