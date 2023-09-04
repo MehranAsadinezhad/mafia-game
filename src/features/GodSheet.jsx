@@ -1,4 +1,4 @@
-
+import { useState } from "react";
 import music from "../music.mp3";
 
 export default function GodSheet({
@@ -9,12 +9,13 @@ export default function GodSheet({
   status,
 }) {
   const audio = new Audio(music);
+  const [day, setDay] = useState(0);
   return (
     <div className="flex flex-col justify-center">
       <table className="my-4 table-auto">
         <thead>
           <tr className="border-b-2 border-cyan text-center font-secondary text-medium">
-            <td className="font-bold">بازیکنان</td>
+            <td className="px-2 text-start font-bold">بازیکنان</td>
             <td>
               <span className="py-2">🔫</span>
             </td>
@@ -40,7 +41,7 @@ export default function GodSheet({
               index={index}
               className="border-b-2 border-dark text-center font-secondary text-medium"
             >
-              <td>
+              <td className="px-2 text-start">
                 <span className="ml-2 font-secondary text-sm">
                   {index + 1}- {player.name} / {player.role}
                 </span>
@@ -80,32 +81,43 @@ export default function GodSheet({
           ))}
         </tbody>
       </table>
-      <div className="my-4 flex items-center justify-center">
+      <div className="my-4 flex justify-evenly">
         <textarea
           placeholder="یادداشت وقایع..."
           className="h-40 w-56 rounded-md bg-dark p-2 font-secondary text-sm text-medium outline-none ring-2 ring-cyan transition-all focus:ring-2 focus:ring-orange"
         ></textarea>
-        <div className="flex flex-wrap justify-center gap-y-2 self-start">
-          
+        <div className="flex flex-col items-center gap-y-3">
+          <div className="flex flex-wrap justify-center gap-x-1 self-start">
             <button
               className="mr-2 rounded-md bg-cyan p-1 font-secondary text-light"
               onClick={() => {
                 audio.play();
               }}
             >
-              🎵
+              پخش
             </button>
-          
             <button
               className="mr-2 rounded-md bg-cyan p-1 font-secondary text-light"
               onClick={() => {
                 audio.pause();
-                
               }}
             >
-              ⏸️
+              توقف
             </button>
-          
+          </div>
+          <div className="flex flex-wrap justify-center gap-x-1 self-start">
+            <label className="rounded-md  p-1 font-secondary text-light">
+              روز شمار
+            </label>
+            <button
+              className="mr-2 rounded-full bg-cyan px-3 font-secondary text-light transition-all active:ring-2 active:ring-orange"
+              onClick={() => {
+                setDay(day + 1);
+              }}
+            >
+              {day}
+            </button>
+          </div>
         </div>
       </div>
     </div>
