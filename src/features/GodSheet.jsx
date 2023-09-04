@@ -8,6 +8,7 @@ export default function GodSheet({
 }) {
   const audio = useRef(new Audio(music));
   const [day, setDay] = useState(0);
+  const [detect, setDetect] = useState(2);
   const [playing, setPlaying] = useState(false);
   const sortedAllNamesRoles = allNamesRoles
     .slice()
@@ -125,6 +126,20 @@ export default function GodSheet({
               }}
             >
               {day}
+            </button>
+          </div>
+          <div className="flex flex-wrap justify-center gap-x-1 self-start">
+            <label className="rounded-md  p-1 font-secondary text-light">
+             استعلام
+            </label>
+            <button
+              className="mr-2 rounded-full bg-cyan p-1 px-3 text-center text-light transition-all active:ring-2 active:ring-orange"
+              onClick={() => {
+                if(detect === 0)return
+                setDetect(detect - 1);
+              }}
+            >
+              {detect}
             </button>
           </div>
         </div>
