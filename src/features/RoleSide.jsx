@@ -17,7 +17,7 @@ export default function RoleSide({
         className="mx-2 w-1/2"
         onSubmit={(e) => {
           e.preventDefault();
-          if (inp.current.value === "") return
+          if (inp.current.value === "") return;
           dispatch({ type: "addRole", payload: role });
           inp.current.value = "";
         }}
@@ -35,7 +35,7 @@ export default function RoleSide({
           <Button>+</Button>
         </div>
         {roles.length > 0 && (
-          <div className="mx-2 my-4 flex justify-center flex-wrap gap-2 rounded-lg bg-dark p-2 py-3">
+          <div className="mx-2 my-4 flex flex-wrap justify-center gap-2 rounded-lg bg-dark p-2 py-3">
             {roles.map((role) => (
               <img
                 key={role.id}
@@ -43,14 +43,18 @@ export default function RoleSide({
                 alt={role.id}
                 className="h-14 w-14 rounded-full p-1"
                 onClick={() => {
-                  if(!selectedPlayer) return
-                  const record = { name: selectedPlayer, role: role.role, id:Date.now() };
+                  if (!selectedPlayer) return;
+                  const record = {
+                    name: selectedPlayer,
+                    role: role.role,
+                    id: Date.now(),
+                  };
                   dispatch({
                     type: "selectRole",
                     payload: role.role,
                     loadpay: record,
                     Rfilter: roles.filter((e) => e.id !== role.id),
-                    Pfilter: players.filter((e) => e.id !== selectedId ),
+                    Pfilter: players.filter((e) => e.id !== selectedId),
                   });
                 }}
               ></img>

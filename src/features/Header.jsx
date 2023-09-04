@@ -3,11 +3,11 @@ import logo from "../assets/images/logo.png";
 
 export default function Header() {
   return (
-    <div className="p-4 flex items-center justify-center">
-      <h1 className="text-medium font-semibold font-secondary ml-5 text-4xl tracking-widest">
+    <div className="flex items-center justify-center p-4">
+      <h1 className="ml-5 font-secondary text-4xl font-semibold tracking-widest text-medium">
         پارتی گیم
       </h1>
-      <img src={logo} alt="logo" className="bg-cyan w-24 rounded-full"></img>
+      <img src={logo} alt="logo" className="w-24 rounded-full bg-cyan"></img>
     </div>
   );
 }

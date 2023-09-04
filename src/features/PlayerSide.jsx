@@ -1,15 +1,7 @@
 import React, { useRef, useState } from "react";
 import Button from "../ui/Button";
 
-export default function PlayerSide({
-  players,
-  roles,
-  selectedPlayer,
-  status,
-  selectedRole,
-  allNamesRoles,
-  dispatch,
-}) {
+export default function PlayerSide({ players, dispatch }) {
   const [name, setName] = useState({});
   const inp = useRef(null);
   return (
@@ -36,7 +28,7 @@ export default function PlayerSide({
       </div>
       {players.length > 0 && (
         <ol className="mx-2 my-4 list-decimal rounded-lg bg-dark px-2 py-3">
-          {players.map((player,index) => (
+          {players.map((player, index) => (
             <li
               key={player.id}
               className="mb-3 flex items-center justify-between"

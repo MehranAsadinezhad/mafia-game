@@ -60,8 +60,8 @@ export default function GodSheet({
                   className={`ml-2 font-secondary text-sm ${
                     player.role === "زودیاک" ? "text-orange" : ""
                   }${player.role === "شعبده باز" ? "text-red-600" : ""}
-                  ${player.role === 'بمب ساز' ? 'text-red-600' : ''}
-                  ${player.role === 'الکاپن' ? 'text-red-600' : ''}`}
+                  ${player.role === "بمب ساز" ? "text-red-600" : ""}
+                  ${player.role === "الکاپن" ? "text-red-600" : ""}`}
                 >
                   {index + 1}- {player.name} / {player.role}
                 </span>
@@ -130,12 +130,12 @@ export default function GodSheet({
           </div>
           <div className="flex flex-wrap justify-center gap-x-1 self-start">
             <label className="rounded-md  p-1 font-secondary text-light">
-             استعلام
+              استعلام
             </label>
             <button
               className="mr-2 rounded-full bg-cyan p-1 px-3 text-center text-light transition-all active:ring-2 active:ring-orange"
               onClick={() => {
-                if(detect === 0)return
+                if (detect === 0) return;
                 setDetect(detect - 1);
               }}
             >
