@@ -110,24 +110,24 @@ export default function GodSheet({
       <div className="my-4 flex justify-evenly">
         <textarea
           placeholder="یادداشت وقایع..."
-          className="h-40 w-56 rounded-md bg-dark p-2 font-secondary text-sm text-medium outline-none ring-2 ring-cyan transition-all focus:ring-2 focus:ring-orange"
+          className="h-48 w-56 rounded-md bg-dark p-2 font-secondary text-sm text-medium outline-none ring-2 ring-cyan transition-all focus:ring-2 focus:ring-orange"
         ></textarea>
         <div className="flex flex-col items-center gap-y-3">
           <div className="flex flex-wrap justify-center gap-x-1 self-start">
             <button
-              className="mr-2 rounded-full bg-cyan p-1 font-secondary text-light focus:ring-2 focus:ring-orange"
+              className="mr-2 rounded-full bg-cyan p-1 px-2 font-secondary text-light focus:ring-2 focus:ring-orange"
               onClick={playing ? pause : play}
             >
-              {!playing ? "▶️" : "⏸️"}
+              {!playing ? "پخش 🎵" : "توقف 🎵"}
             </button>
             <button
-              className="mr-2 rounded-full  bg-cyan p-1 font-secondary text-light focus:ring-2 focus:ring-orange"
+              className="mr-2 rounded-full  bg-cyan p-1 px-2 font-secondary text-light focus:ring-2 focus:ring-orange"
               onClick={() => shot.play()}
             >
-              🔫
+              شات
             </button>
           </div>
-          <div className="flex flex-wrap justify-center gap-x-1 self-start">
+          <div className="flex flex-wrap justify-center gap-x-1 ">
             <label className="rounded-md  p-1 font-secondary text-light">
               روز شمار
             </label>
@@ -140,7 +140,7 @@ export default function GodSheet({
               {day}
             </button>
           </div>
-          <div className="flex flex-wrap justify-center gap-x-1 self-start">
+          <div className="flex flex-wrap justify-center gap-x-1">
             <label className="rounded-md  p-1 font-secondary text-light">
               استعلام
             </label>
