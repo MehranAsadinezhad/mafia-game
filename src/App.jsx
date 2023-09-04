@@ -1,4 +1,4 @@
-import { useReducer } from "react";
+import { useEffect, useReducer } from "react";
 import SetUpGame from "./features/SetUpGame";
 import GodSheet from "./features/GodSheet";
 import mask from "./assets/images/g.png";
@@ -45,9 +45,9 @@ function reducer(state, action) {
         allNamesRoles: action.filter,
       };
     case "playMusic":
-      return {...state, playMusic: action.payload}
-    case 'pauseMusic':
-      return {...state, playMusic: action.payload}
+      return { ...state, playMusic: action.payload };
+    case "pauseMusic":
+      return { ...state, playMusic: action.payload };
 
     default:
       throw new Error("invalid action type");
@@ -67,6 +67,15 @@ function App() {
     },
     dispatch,
   ] = useReducer(reducer, initialState);
+
+  useEffect(() => {
+    window.onbeforeunload = () => {
+      return "";
+    };
+    return () => {
+      window.onbeforeunload = null;
+    };
+  }, []);
 
   return (
     <>

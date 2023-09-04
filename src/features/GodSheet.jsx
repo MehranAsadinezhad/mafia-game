@@ -9,6 +9,9 @@ export default function GodSheet({
   const audio = useRef(new Audio(music));
   const [day, setDay] = useState(0);
   const [playing, setPlaying] = useState(false);
+  const sortedAllNamesRoles = allNamesRoles
+    .slice()
+    .sort((a, b) => a.role.localeCompare(b.role));
 
   const play = () => {
     setPlaying(true);
@@ -30,13 +33,13 @@ export default function GodSheet({
               <span className="py-2">🔫</span>
             </td>
             <td>
-              <span className="mx-2 py-2">💖</span>
+              <span className="mx-2 py-2">❤️</span>
             </td>
             <td>
               <span className="mx-2 py-2">🔒</span>
             </td>
             <td>
-              <span className="mx-2 py-2">🖐️</span>
+              <span className="mx-2 py-2">🤏</span>
             </td>
             <td>
               <span className="py-2">⚠️</span>
@@ -44,7 +47,7 @@ export default function GodSheet({
           </tr>
         </thead>
         <tbody>
-          {allNamesRoles?.map((player, index) => (
+          {sortedAllNamesRoles?.map((player, index) => (
             <tr
               key={player.name}
               player={player}
@@ -52,7 +55,13 @@ export default function GodSheet({
               className="border-b-2 border-dark text-center font-secondary text-medium"
             >
               <td className="px-2 text-start">
-                <span className={`ml-2 font-secondary text-sm`}>
+                <span
+                  className={`ml-2 font-secondary text-sm ${
+                    player.role === "زودیاک" ? "text-orange" : ""
+                  }${player.role === "شعبده باز" ? "text-red-600" : ""}
+                  ${player.role === 'بمب ساز' ? 'text-red-600' : ''}
+                  ${player.role === 'الکاپن' ? 'text-red-600' : ''}`}
+                >
                   {index + 1}- {player.name} / {player.role}
                 </span>
                 <button
@@ -67,7 +76,7 @@ export default function GodSheet({
                     });
                   }}
                 >
-                  ❌
+                  👋
                 </button>
               </td>
               <td>
@@ -82,7 +91,7 @@ export default function GodSheet({
               <td>
                 <input className="my-2" type="checkbox"></input>
               </td>
-              <td>
+              <td className="px-2">
                 <input className="my-2" type="checkbox"></input>
                 <input className="mx-1 my-2" type="checkbox"></input>
                 <input className="my-2" type="checkbox"></input>
