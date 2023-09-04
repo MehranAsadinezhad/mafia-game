@@ -4,7 +4,7 @@ import GodSheet from "./features/GodSheet";
 import mask from "./assets/images/g.png";
 
 const initialState = {
-  status: "start",
+  status: "setUp",
   players: [],
   roles: [],
   selectedPlayer: "",
@@ -12,7 +12,6 @@ const initialState = {
   selectedId: "",
   allNamesRoles: [],
   selectedNameRole: "",
-  playMusic: false,
 };
 
 function reducer(state, action) {
@@ -65,7 +64,6 @@ function App() {
       allNamesRoles,
       selectedId,
       selectedNameRole,
-      playMusic,
     },
     dispatch,
   ] = useReducer(reducer, initialState);
@@ -105,7 +103,6 @@ function App() {
               allNamesRoles={allNamesRoles}
               selectedNameRole={selectedNameRole}
               dispatch={dispatch}
-              playMusic={playMusic}
             />
           )}
         </>

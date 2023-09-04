@@ -1,15 +1,25 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import music from "../music.mp3";
 
 export default function GodSheet({
   allNamesRoles,
   dispatch,
   selectedNameRole,
-  playMusic,
-  status,
 }) {
-  const audio = new Audio(music);
+  const audio = useRef(new Audio(music));
   const [day, setDay] = useState(0);
+  const [playing, setPlaying] = useState(false);
+
+  const play = () => {
+    setPlaying(true);
+    audio.current.play();
+  };
+
+  const pause = () => {
+    setPlaying(false);
+    audio.current.pause();
+  };
+
   return (
     <div className="flex flex-col justify-center">
       <table className="my-4 table-auto">
@@ -42,7 +52,7 @@ export default function GodSheet({
               className="border-b-2 border-dark text-center font-secondary text-medium"
             >
               <td className="px-2 text-start">
-                <span className="ml-2 font-secondary text-sm">
+                <span className={`ml-2 font-secondary text-sm`}>
                   {index + 1}- {player.name} / {player.role}
                 </span>
                 <button
@@ -89,20 +99,10 @@ export default function GodSheet({
         <div className="flex flex-col items-center gap-y-3">
           <div className="flex flex-wrap justify-center gap-x-1 self-start">
             <button
-              className="mr-2 rounded-md bg-cyan p-1 font-secondary text-light"
-              onClick={() => {
-                audio.play();
-              }}
+              className="mr-2 rounded-md bg-cyan p-1 font-secondary text-light focus:ring-2 focus:ring-orange"
+              onClick={playing ? pause : play}
             >
-              پخش
-            </button>
-            <button
-              className="mr-2 rounded-md bg-cyan p-1 font-secondary text-light"
-              onClick={() => {
-                audio.pause();
-              }}
-            >
-              توقف
+              {!playing ? "پخش" : "توقف"}
             </button>
           </div>
           <div className="flex flex-wrap justify-center gap-x-1 self-start">
@@ -110,7 +110,7 @@ export default function GodSheet({
               روز شمار
             </label>
             <button
-              className="mr-2 rounded-full bg-cyan px-3 font-secondary text-light transition-all active:ring-2 active:ring-orange"
+              className="mr-2 rounded-full bg-cyan p-1 px-3 text-center text-light transition-all active:ring-2 active:ring-orange"
               onClick={() => {
                 setDay(day + 1);
               }}

@@ -6,11 +6,8 @@ export default function RoleSide({
   players,
   roles,
   selectedPlayer,
-  status,
-  selectedRole,
-  allNamesRoles,
   dispatch,
-  selectedId
+  selectedId,
 }) {
   const [role, setRole] = useState({});
   const inp = useRef(null);
