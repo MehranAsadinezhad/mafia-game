@@ -38,11 +38,13 @@ function reducer(state, action) {
       return { ...state, selectedRole: "", selectedPlayer: "", selectedId: "" };
     case "start":
       return { ...state, status: "start" };
+    case "selectNameRole":
+      return { ...state, selectedNameRole: action.payload };
     case "removeNameRole":
       return {
         ...state,
-        selectedNameRole: action.payload,
         allNamesRoles: action.filter,
+        selectedNameRole: "",
       };
     case "playMusic":
       return { ...state, playMusic: action.payload };

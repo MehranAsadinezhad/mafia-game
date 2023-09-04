@@ -41,7 +41,7 @@ export default function RoleSide({
                 key={role.id}
                 src={mask}
                 alt={role.id}
-                className="h-14 w-14 rounded-full p-1"
+                className="h-16 w-16 rounded-full p-1"
                 onClick={() => {
                   if (!selectedPlayer) return;
                   const record = {

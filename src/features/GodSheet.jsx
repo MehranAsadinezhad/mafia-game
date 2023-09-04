@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import music from "../music.mp3";
+import shotMusic from "../shot.mp3";
 
 export default function GodSheet({
   allNamesRoles,
@@ -7,6 +8,7 @@ export default function GodSheet({
   selectedNameRole,
 }) {
   const audio = useRef(new Audio(music));
+  const shot = new Audio(shotMusic);
   const [day, setDay] = useState(0);
   const [detect, setDetect] = useState(2);
   const [playing, setPlaying] = useState(false);
@@ -56,21 +58,25 @@ export default function GodSheet({
               className="border-b-2 border-dark text-center font-secondary text-medium"
             >
               <td className="px-2 text-start">
-                <span
-                  className={`ml-2 font-secondary text-sm ${
-                    player.role === "زودیاک" ? "text-orange" : ""
+                <button
+                  className={`ml-2 font-secondary text-sm 
+                  focus:line-through
+                  ${player.role === "زودیاک" ? "text-orange" : ""}${
+                    player.role === "نوستراداموس" ? "text-orange" : ""
                   }${player.role === "شعبده باز" ? "text-red-600" : ""}
                   ${player.role === "بمب ساز" ? "text-red-600" : ""}
                   ${player.role === "الکاپن" ? "text-red-600" : ""}`}
+                  onClick={() =>
+                    dispatch({ type: "selectNameRole", payload: player.id })
+                  }
                 >
                   {index + 1}- {player.name} / {player.role}
-                </span>
+                </button>
                 <button
                   className="ml-1 rounded-full  text-xs transition-all focus:px-1 focus:text-base"
                   onClick={() => {
                     dispatch({
                       type: "removeNameRole",
-                      payload: player.id,
                       filter: allNamesRoles.filter(
                         (player) => player.id !== selectedNameRole,
                       ),
@@ -109,10 +115,16 @@ export default function GodSheet({
         <div className="flex flex-col items-center gap-y-3">
           <div className="flex flex-wrap justify-center gap-x-1 self-start">
             <button
-              className="mr-2 rounded-md bg-cyan p-1 font-secondary text-light focus:ring-2 focus:ring-orange"
+              className="mr-2 rounded-full bg-cyan p-1 font-secondary text-light focus:ring-2 focus:ring-orange"
               onClick={playing ? pause : play}
             >
-              {!playing ? "پخش" : "توقف"}
+              {!playing ? "▶️" : "⏸️"}
+            </button>
+            <button
+              className="mr-2 rounded-full  bg-cyan p-1 font-secondary text-light focus:ring-2 focus:ring-orange"
+              onClick={() => shot.play()}
+            >
+              🔫
             </button>
           </div>
           <div className="flex flex-wrap justify-center gap-x-1 self-start">
