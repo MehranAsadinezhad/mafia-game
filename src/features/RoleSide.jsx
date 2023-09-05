@@ -22,7 +22,7 @@ export default function RoleSide({
           inp.current.value = "";
         }}
       >
-        <div className="mr-2 flex-wrap flex justify-between">
+        <div className="mr-2 flex justify-between">
           <input
             ref={inp}
             type="text"

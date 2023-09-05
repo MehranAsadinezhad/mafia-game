@@ -54,8 +54,8 @@ export default function GodSheet({
     <div className="flex flex-col justify-center">
       <table className="mb-4 table-auto">
         <thead>
-          <tr className="border-b-2 h-8 border-cyan text-center font-secondary text-medium">
-            <td className="px-2 text-start font-semibold tracking-widest">
+          <tr className="h-9 border-b-2 border-cyan text-center font-secondary text-medium">
+            <td className="text-center font-semibold tracking-widest">
               بازیکنان
             </td>
             <td>
@@ -81,9 +81,9 @@ export default function GodSheet({
               key={player.name}
               player={player}
               index={index}
-              className="h-10 border-b-2 border-dark text-center font-secondary text-medium"
+              className="h-9 border-b-2 border-dark text-center font-secondary text-medium"
             >
-              <td className="px-2 text-start">
+              <td className="my-2 flex justify-center">
                 <button
                   className={`ml-2 font-secondary text-sm 
                   focus:line-through
@@ -122,7 +122,7 @@ export default function GodSheet({
               <td>
                 <input className="my-2" type="checkbox"></input>
               </td>
-              <td className="px-2">
+              <td className="w-16 px-2">
                 <input className="my-2" type="checkbox"></input>
                 <input className="mx-1" type="checkbox"></input>
                 <input className="my-2" type="checkbox"></input>
@@ -137,15 +137,15 @@ export default function GodSheet({
           className="h-52 w-56 rounded-md bg-dark p-2 font-secondary text-sm text-medium outline-none ring-2 ring-cyan transition-all focus:ring-2 focus:ring-orange"
         ></textarea>
         <div className="flex flex-col items-center gap-y-3">
-          <div className="flex flex-wrap justify-center gap-x-1 self-start">
+          <div className="flex flex-wrap justify-center gap-2 self-start">
             <button
-              className="mr-2 rounded-full bg-cyan p-1 px-2 font-secondary text-light focus:ring-2 focus:ring-orange"
+              className="rounded-full bg-cyan p-1 px-2 font-secondary text-light focus:ring-2 focus:ring-orange"
               onClick={playing ? pause : play}
             >
               {!playing ? "پخش 🎵" : "توقف 🎵"}
             </button>
             <button
-              className="mr-2 rounded-full  bg-cyan p-1 px-2 font-secondary text-light focus:ring-2 focus:ring-orange"
+              className="rounded-full  bg-cyan p-1 px-2 font-secondary text-light focus:ring-2 focus:ring-orange"
               onClick={() => shot.play()}
             >
               شات
