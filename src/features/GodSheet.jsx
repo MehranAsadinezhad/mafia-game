@@ -54,8 +54,8 @@ export default function GodSheet({
     <div className="flex flex-col justify-center">
       <table className="mb-4 table-auto">
         <thead>
-          <tr className="border-b-2 h-10 border-cyan text-center font-secondary text-medium">
-            <td className="px-2 text-start font-semibold tracking-wider">
+          <tr className="border-b-2 h-8 border-cyan text-center font-secondary text-medium">
+            <td className="px-2 text-start font-semibold tracking-widest">
               بازیکنان
             </td>
             <td>
