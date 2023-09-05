@@ -55,7 +55,7 @@ export default function GodSheet({
       <table className="mb-4 table-auto">
         <thead>
           <tr className="h-9 border-b-2 border-cyan text-center font-secondary text-medium">
-            <td className="text-start font-semibold tracking-widest">
+            <td className="px-2 text-start font-semibold tracking-widest">
               بازیکنان
             </td>
             <td>
@@ -85,7 +85,7 @@ export default function GodSheet({
             >
               <td className="my-2 flex">
                 <button
-                  className={`ml-2 font-secondary text-sm 
+                  className={`ml-2 mr-2 font-secondary text-sm 
                   focus:line-through
                   ${dependece.includes(player.role) ? "text-orange" : ""}${
                     mafias.includes(player.role) ? "text-red-600" : ""
@@ -97,7 +97,7 @@ export default function GodSheet({
                   {index + 1}- {player.name} / {player.role}
                 </button>
                 <button
-                  className="ml-1 rounded-full  text-sm transition-all focus:px-1 focus:text-base"
+                  className="ml-1 rounded-full  text-sm"
                   onClick={() => {
                     dispatch({
                       type: "removeNameRole",
@@ -122,7 +122,7 @@ export default function GodSheet({
               <td>
                 <input className="my-2" type="checkbox"></input>
               </td>
-              <td className="w-20 px-2">
+              <td className="w-[70px] bg-cyan">
                 <input className="my-2" type="checkbox"></input>
                 <input className="mx-1" type="checkbox"></input>
                 <input className="my-2" type="checkbox"></input>
