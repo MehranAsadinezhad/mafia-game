@@ -34,6 +34,8 @@ function reducer(state, action) {
         roles: action.Rfilter,
         players: action.Pfilter,
       };
+    case "randomisRoles":
+      return { ...state, roles: action.payload };
     case "recordRole":
       return { ...state, selectedRole: "", selectedPlayer: "", selectedId: "" };
     case "start":

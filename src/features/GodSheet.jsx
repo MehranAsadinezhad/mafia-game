@@ -26,12 +26,38 @@ export default function GodSheet({
     audio.current.pause();
   };
 
+  const mafias = [
+    "شعبده باز",
+    "بمب ساز",
+    "الکاپن",
+    "الکاپون",
+    "آلکاپن",
+    "آلکاپون",
+    "ساول گودمن",
+    "گودمن",
+    "پدرخوانده",
+    "پدر خوانده",
+    "پدرخانده",
+    "پدر خانده",
+    "بمبساز",
+    "شعبدهباز",
+    "ماتادور",
+    "مافیای ساده",
+    "مافیا ساده",
+    "دکتر لکتر",
+    "دکترلکتر",
+    "مافیاساده",
+  ];
+  const dependece = ["زودیاک", "نوستراداموس", "جک گنجشکه", "جکگنجشکه", "مستقل"];
+
   return (
     <div className="flex flex-col justify-center">
-      <table className="my-4 table-auto">
+      <table className="mb-4 table-auto">
         <thead>
-          <tr className="border-b-2 border-cyan text-center font-secondary text-medium">
-            <td className="px-2 text-start font-bold">بازیکنان</td>
+          <tr className="border-b-2 h-10 border-cyan text-center font-secondary text-medium">
+            <td className="px-2 text-start font-semibold tracking-wider">
+              بازیکنان
+            </td>
             <td>
               <span className="py-2">🔫</span>
             </td>
@@ -55,17 +81,15 @@ export default function GodSheet({
               key={player.name}
               player={player}
               index={index}
-              className="border-b-2 border-dark text-center font-secondary text-medium"
+              className="h-10 border-b-2 border-dark text-center font-secondary text-medium"
             >
               <td className="px-2 text-start">
                 <button
                   className={`ml-2 font-secondary text-sm 
                   focus:line-through
-                  ${player.role === "زودیاک" ? "text-orange" : ""}${
-                    player.role === "نوستراداموس" ? "text-orange" : ""
-                  }${player.role === "شعبده باز" ? "text-red-600" : ""}
-                  ${player.role === "بمب ساز" ? "text-red-600" : ""}
-                  ${player.role === "الکاپن" ? "text-red-600" : ""}`}
+                  ${dependece.includes(player.role) ? "text-orange" : ""}${
+                    mafias.includes(player.role) ? "text-red-600" : ""
+                  }`}
                   onClick={() =>
                     dispatch({ type: "selectNameRole", payload: player.id })
                   }
@@ -73,7 +97,7 @@ export default function GodSheet({
                   {index + 1}- {player.name} / {player.role}
                 </button>
                 <button
-                  className="ml-1 rounded-full  text-xs transition-all focus:px-1 focus:text-base"
+                  className="ml-1 rounded-full  text-sm transition-all focus:px-1 focus:text-base"
                   onClick={() => {
                     dispatch({
                       type: "removeNameRole",
@@ -100,7 +124,7 @@ export default function GodSheet({
               </td>
               <td className="px-2">
                 <input className="my-2" type="checkbox"></input>
-                <input className="mx-1 my-2" type="checkbox"></input>
+                <input className="mx-1" type="checkbox"></input>
                 <input className="my-2" type="checkbox"></input>
               </td>
             </tr>
@@ -110,7 +134,7 @@ export default function GodSheet({
       <div className="my-4 flex justify-evenly">
         <textarea
           placeholder="یادداشت وقایع..."
-          className="h-48 w-56 rounded-md bg-dark p-2 font-secondary text-sm text-medium outline-none ring-2 ring-cyan transition-all focus:ring-2 focus:ring-orange"
+          className="h-52 w-56 rounded-md bg-dark p-2 font-secondary text-sm text-medium outline-none ring-2 ring-cyan transition-all focus:ring-2 focus:ring-orange"
         ></textarea>
         <div className="flex flex-col items-center gap-y-3">
           <div className="flex flex-wrap justify-center gap-x-1 self-start">

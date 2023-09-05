@@ -15,7 +15,7 @@ export default function SetUpGame({
 }) {
   return (
     <div>
-      <Header />
+      <Header roles={roles} dispatch={dispatch} />
       <div className="my-2 flex w-full justify-between">
         <PlayerSide
           dispatch={dispatch}
@@ -39,10 +39,10 @@ export default function SetUpGame({
         />
       </div>
       {allNamesRoles.length > 6 && (
-        <div className="flex h-44 items-center justify-center">
+        <div className="flex h-36 items-center justify-center">
           <button
             onClick={() => dispatch({ type: "start" })}
-            className="rounded-ful my-3 rounded-full bg-cyan px-9 py-3 text-center font-secondary text-xl text-light outline-none ring-2 ring-orange"
+            className="rounded-ful my-3 rounded-full bg-cyan px-7 py-3 text-center font-secondary text-2xl text-orange outline-none ring-2 ring-medium"
           >
             💣 برو بریم
           </button>
