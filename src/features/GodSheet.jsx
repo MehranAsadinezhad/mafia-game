@@ -85,29 +85,30 @@ export default function GodSheet({
             >
               <td className="my-2 flex">
                 <button
-                  className={`ml-2 mr-2 font-secondary text-sm 
-                  focus:line-through
+                  className={`ml-2 mr-2 font-secondary text-sm ${
+                    player.line ? "line-through" : ""
+                  }
+                   
                   ${dependece.includes(player.role) ? "text-orange" : ""}${
                     mafias.includes(player.role) ? "text-red-600" : ""
                   }`}
                   onClick={() =>
-                    dispatch({ type: "selectNameRole", payload: player.id })
+                    dispatch({
+                      type: "selectNameRole",
+                      payload: player.id,
+                      changeLine: allNamesRoles.map((pl) => {
+                        if (pl.id === player.id && player.line === false) {
+                          return { ...pl, line: true };
+                        }
+                        if (pl.id === player.id && player.line === true) {
+                          return { ...pl, line: false };
+                        }
+                        return pl;
+                      }),
+                    })
                   }
                 >
                   {index + 1}- {player.name} / {player.role}
-                </button>
-                <button
-                  className="ml-1 rounded-full  text-sm"
-                  onClick={() => {
-                    dispatch({
-                      type: "removeNameRole",
-                      filter: allNamesRoles.filter(
-                        (player) => player.id !== selectedNameRole,
-                      ),
-                    });
-                  }}
-                >
-                  👋
                 </button>
               </td>
               <td>

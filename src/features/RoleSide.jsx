@@ -48,6 +48,7 @@ export default function RoleSide({
                     name: selectedPlayer,
                     role: role.role,
                     id: Date.now(),
+                    line: false,
                   };
                   dispatch({
                     type: "selectRole",

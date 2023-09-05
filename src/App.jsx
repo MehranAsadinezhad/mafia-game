@@ -41,13 +41,7 @@ function reducer(state, action) {
     case "start":
       return { ...state, status: "start" };
     case "selectNameRole":
-      return { ...state, selectedNameRole: action.payload };
-    case "removeNameRole":
-      return {
-        ...state,
-        allNamesRoles: action.filter,
-        selectedNameRole: "",
-      };
+      return { ...state, selectedNameRole: action.payload, allNamesRoles: action.changeLine };
     case "playMusic":
       return { ...state, playMusic: action.payload };
     case "pauseMusic":
