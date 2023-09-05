@@ -122,7 +122,7 @@ export default function GodSheet({
               <td>
                 <input className="my-2" type="checkbox"></input>
               </td>
-              <td className="w-[70px] bg-cyan">
+              <td className="w-[70px]">
                 <input className="my-2" type="checkbox"></input>
                 <input className="mx-1" type="checkbox"></input>
                 <input className="my-2" type="checkbox"></input>
