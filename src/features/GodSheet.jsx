@@ -55,7 +55,7 @@ export default function GodSheet({
       <table className="mb-4 table-auto">
         <thead>
           <tr className="h-9 border-b-2 border-cyan text-center font-secondary text-medium">
-            <td className="text-center font-semibold tracking-widest">
+            <td className="text-start font-semibold tracking-widest">
               بازیکنان
             </td>
             <td>
@@ -83,7 +83,7 @@ export default function GodSheet({
               index={index}
               className="h-9 border-b-2 border-dark text-center font-secondary text-medium"
             >
-              <td className="my-2 flex justify-center">
+              <td className="my-2 flex">
                 <button
                   className={`ml-2 font-secondary text-sm 
                   focus:line-through
@@ -122,7 +122,7 @@ export default function GodSheet({
               <td>
                 <input className="my-2" type="checkbox"></input>
               </td>
-              <td className="w-16 px-2">
+              <td className="w-20 px-2">
                 <input className="my-2" type="checkbox"></input>
                 <input className="mx-1" type="checkbox"></input>
                 <input className="my-2" type="checkbox"></input>
