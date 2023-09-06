@@ -14,7 +14,7 @@ export default function Header({ roles, dispatch }) {
         <h1 className="font-secondary text-4xl font-semibold tracking-widest text-medium">
           پارتی گیم
         </h1>
-        <p className="text-center font-sans text-sm font-semibold text-gray-500">
+        <p className="text-center tracking-wide font-sans text-sm font-semibold text-gray-500">
           :developed by <br></br>
           <span className="tracking-wide">Mehran Asadinezhad</span>
         </p>

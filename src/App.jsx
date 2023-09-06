@@ -99,7 +99,7 @@ function App() {
             {selectedRole}
           </h1>
           <button
-            className="rounded-ful my-3 rounded-full bg-cyan px-9 py-3 text-center font-secondary text-xl text-light"
+            className="rounded-ful my-3 rounded-full bg-gradient-to-t from-cyan to-sky-800 px-9 py-3 text-center font-secondary text-xl text-light"
             onClick={() => dispatch({ type: "recordRole" })}
           >
             ثبت

@@ -38,11 +38,11 @@ export default function SetUpGame({
           allNamesRoles={allNamesRoles}
         />
       </div>
-      {allNamesRoles.length > 6 && (
+      {roles.length === 0 && allNamesRoles.length > 0 && (
         <div className="flex h-96 items-center justify-center">
           <button
             onClick={() => dispatch({ type: "start" })}
-            className="rounded-ful rounded-full bg-gradient-to-t from-cyan to-sky-800 px-7 py-3 text-center font-secondary text-2xl text-orange outline-none ring-2 ring-cyan"
+            className="rounded-ful rounded-full bg-gradient-to-t from-cyan to-sky-800 px-7 py-5 text-center font-secondary text-2xl text-orange outline-none ring-2 ring-cyan"
           >
             💣 برو بریم
           </button>
