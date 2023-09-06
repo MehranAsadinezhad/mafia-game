@@ -2,9 +2,10 @@ import { useEffect, useReducer } from "react";
 import SetUpGame from "./features/SetUpGame";
 import GodSheet from "./features/GodSheet";
 import mask from "./assets/images/g.png";
+import Login from "./features/Login";
 
 const initialState = {
-  status: "setUp",
+  status: "login",
   players: [],
   roles: [],
   selectedPlayer: "",
@@ -12,10 +13,17 @@ const initialState = {
   selectedId: "",
   allNamesRoles: [],
   selectedNameRole: "",
+  auth: false,
 };
 
 function reducer(state, action) {
   switch (action.type) {
+    case "user":
+      return {
+        ...state,
+        auth: action.payload,
+        status: state.auth === true ? "setUp" : state.status,
+      };
     case "addPlayer":
       return { ...state, players: [...state.players, action.payload] };
     case "selectPlayer":
@@ -41,7 +49,11 @@ function reducer(state, action) {
     case "start":
       return { ...state, status: "start" };
     case "selectNameRole":
-      return { ...state, selectedNameRole: action.payload, allNamesRoles: action.changeLine };
+      return {
+        ...state,
+        selectedNameRole: action.payload,
+        allNamesRoles: action.changeLine,
+      };
     case "playMusic":
       return { ...state, playMusic: action.payload };
     case "pauseMusic":
@@ -62,6 +74,7 @@ function App() {
       allNamesRoles,
       selectedId,
       selectedNameRole,
+      users,
     },
     dispatch,
   ] = useReducer(reducer, initialState);
@@ -104,6 +117,7 @@ function App() {
               dispatch={dispatch}
             />
           )}
+          {status === "login" && <Login dispatch={dispatch} />}
           {status === "start" && (
             <GodSheet
               status={status}
