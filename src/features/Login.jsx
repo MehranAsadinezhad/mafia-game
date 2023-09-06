@@ -52,7 +52,7 @@ export default function Login({ dispatch, auth }) {
               onChange={(e) => setPassword(e.target.value)}
             ></input>
           </div>
-          <button className="mt-4 rounded-lg bg-cyan px-4 py-1 font-secondary font-semibold text-medium focus:ring-2 focus:ring-orange">
+          <button className="mt-4 rounded-lg bg-gradient-to-t from-cyan to-sky-800 px-4 py-1 font-secondary font-semibold text-medium focus:ring-2 focus:ring-orange">
             ورود
           </button>
         </div>

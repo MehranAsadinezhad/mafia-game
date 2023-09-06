@@ -1,6 +1,11 @@
+import { FaMusic, FaPause, FaGun, FaBomb } from "react-icons/fa6";
 import { useRef, useState } from "react";
-import music from "../music.mp3";
-import shotMusic from "../shot.mp3";
+import music from "../lion.mp3";
+import secondMusic from "../frog.mp3";
+import bomb from "../bomb.mp3";
+import fakeBomb from "../fakeBomb.mp3";
+import fakeShot from "../fakeShot.mp3";
+import shot from "../shot.mp3";
 
 export default function GodSheet({
   allNamesRoles,
@@ -8,10 +13,18 @@ export default function GodSheet({
   selectedNameRole,
 }) {
   const audio = useRef(new Audio(music));
-  const shot = new Audio(shotMusic);
+  const frogMusic = useRef(new Audio(secondMusic));
+  const fakeShotMusic = new Audio(fakeShot);
+  const bombMusic = new Audio(bomb);
+  const fakeBombMusic = new Audio(fakeBomb);
+  const shotMusic = new Audio(shot);
+
   const [day, setDay] = useState(0);
   const [detect, setDetect] = useState(2);
   const [playing, setPlaying] = useState(false);
+  const [playingFrog, setPlayingFrog] = useState(false);
+  const [check, setCheck] = useState(false);
+
   const sortedAllNamesRoles = allNamesRoles
     .slice()
     .sort((a, b) => a.role.localeCompare(b.role));
@@ -24,6 +37,16 @@ export default function GodSheet({
   const pause = () => {
     setPlaying(false);
     audio.current.pause();
+  };
+
+  const playFrog = () => {
+    setPlayingFrog(true);
+    frogMusic.current.play();
+  };
+
+  const pauseFrog = () => {
+    setPlayingFrog(false);
+    frogMusic.current.pause();
   };
 
   const mafias = [
@@ -47,6 +70,8 @@ export default function GodSheet({
     "دکتر لکتر",
     "دکترلکتر",
     "مافیاساده",
+    "گروگانگیر",
+    "گروگان گیر",
   ];
   const dependece = ["زودیاک", "نوستراداموس", "جک گنجشکه", "جکگنجشکه", "مستقل"];
 
@@ -54,7 +79,7 @@ export default function GodSheet({
     <div className="flex flex-col justify-center">
       <table className="mb-4 table-auto">
         <thead>
-          <tr className="h-9 border-b-2 border-cyan text-center font-secondary text-medium">
+          <tr className="h-9 border-b-2 border-cyan text-center font-secondary text-light">
             <td className="px-2 text-start font-semibold tracking-widest">
               بازیکنان
             </td>
@@ -112,16 +137,28 @@ export default function GodSheet({
                 </button>
               </td>
               <td>
-                <input className="my-2" type="checkbox"></input>
+                <input
+                  className="my-2"
+                  type="checkbox"
+                ></input>
               </td>
               <td>
-                <input className="my-2" type="checkbox"></input>
+                <input
+                  className="my-2"
+                  type="checkbox"
+                ></input>
               </td>
               <td>
-                <input className="my-2" type="checkbox"></input>
+                <input
+                  className="my-2"
+                  type="checkbox"
+                ></input>
               </td>
               <td>
-                <input className="my-2" type="checkbox"></input>
+                <input
+                  className="my-2"
+                  type="checkbox"
+                ></input>
               </td>
               <td className="w-[70px]">
                 <input className="my-2" type="checkbox"></input>
@@ -140,16 +177,22 @@ export default function GodSheet({
         <div className="flex flex-col items-center gap-y-3">
           <div className="flex flex-wrap justify-center gap-2 self-start">
             <button
-              className="rounded-full bg-cyan p-1 px-2 font-secondary text-light focus:ring-2 focus:ring-orange"
-              onClick={playing ? pause : play}
+              className="rounded-full bg-gradient-to-t from-cyan to-sky-800 p-2 font-secondary text-light outline-none focus:ring-2 active:ring-orange"
+              onClick={playingFrog ? pauseFrog : playFrog}
             >
-              {!playing ? "پخش 🎵" : "توقف 🎵"}
+              {!playingFrog ? <FaMusic></FaMusic> : <FaPause />}
             </button>
             <button
-              className="rounded-full  bg-cyan p-1 px-2 font-secondary text-light focus:ring-2 focus:ring-orange"
-              onClick={() => shot.play()}
+              className="rounded-full bg-gradient-to-t from-cyan to-sky-800 p-2 font-secondary text-light outline-none focus:ring-2 active:ring-orange"
+              onClick={playing ? pause : play}
             >
-              شات
+              {!playing ? <FaMusic></FaMusic> : <FaPause />}
+            </button>
+            <button
+              className="rounded-full bg-gradient-to-t from-cyan to-sky-800 p-2 font-secondary text-red-500 outline-none focus:ring-2 active:ring-orange"
+              onClick={() => shotMusic.play()}
+            >
+              {<FaGun></FaGun>}
             </button>
           </div>
           <div className="flex flex-wrap justify-center gap-x-1 ">
@@ -157,7 +200,7 @@ export default function GodSheet({
               روز شمار
             </label>
             <button
-              className="mr-2 rounded-full bg-cyan p-1 px-3 text-center text-light transition-all active:ring-2 active:ring-orange"
+              className="mr-2 rounded-full bg-gradient-to-t from-cyan to-sky-800 p-1 px-3 text-center text-light transition-all active:ring-2 active:ring-orange"
               onClick={() => {
                 setDay(day + 1);
               }}
@@ -170,13 +213,33 @@ export default function GodSheet({
               استعلام
             </label>
             <button
-              className="mr-2 rounded-full bg-cyan p-1 px-3 text-center text-light transition-all active:ring-2 active:ring-orange"
+              className="mr-2 rounded-full bg-gradient-to-t from-cyan to-sky-800 p-1 px-3 text-center text-light transition-all active:ring-2 active:ring-orange"
               onClick={() => {
                 if (detect === 0) return;
                 setDetect(detect - 1);
               }}
             >
               {detect}
+            </button>
+          </div>
+          <div className="flex flex-wrap justify-center gap-2 self-start">
+            <button
+              className="rounded-full bg-gradient-to-t from-cyan to-sky-800 p-2 font-secondary text-red-500 outline-none focus:ring-2 active:ring-orange"
+              onClick={() => bombMusic.play()}
+            >
+              {<FaBomb></FaBomb>}
+            </button>
+            <button
+              className="rounded-full bg-gradient-to-t from-cyan to-sky-800 p-2 font-secondary text-green-500 outline-none focus:ring-2 active:ring-orange"
+              onClick={() => fakeBombMusic.play()}
+            >
+              {<FaBomb></FaBomb>}
+            </button>
+            <button
+              className="rounded-full bg-gradient-to-t from-cyan to-sky-800 p-2 font-secondary text-green-500 outline-none focus:ring-2 active:ring-orange"
+              onClick={() => fakeShotMusic.play()}
+            >
+              {<FaGun></FaGun>}
             </button>
           </div>
         </div>

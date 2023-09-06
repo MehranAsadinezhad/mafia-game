@@ -9,17 +9,20 @@ export default function Header({ roles, dispatch }) {
     });
   }
   return (
-    <div className="flex items-center justify-center p-4 gap-x-6">
+    <div className="flex w-full items-center justify-center gap-x-6 bg-gradient-to-b  from-sky-800 to-transparent p-4">
       <div className="flex flex-col gap-y-1">
         <h1 className="font-secondary text-4xl font-semibold tracking-widest text-medium">
           پارتی گیم
         </h1>
-        <p className="text-gray-500 font-sans text-center text-sm font-semibold">:developed by <br></br>Mehran Asadinezhad</p>
+        <p className="text-center font-sans text-sm font-semibold text-gray-500">
+          :developed by <br></br>
+          <span className="tracking-wide">Mehran Asadinezhad</span>
+        </p>
       </div>
       <img
         src={logo}
         alt="logo"
-        className="w-24 rounded-full bg-cyan transition-all active:ring-2 active:ring-orange"
+        className="w-24 rounded-full ring-2 ring-cyan transition-all active:ring-4 active:ring-orange"
         onClick={randomiseRoles}
       ></img>
     </div>

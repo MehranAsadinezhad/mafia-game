@@ -1,8 +1,10 @@
+
 import { useEffect, useReducer } from "react";
 import SetUpGame from "./features/SetUpGame";
 import GodSheet from "./features/GodSheet";
 import mask from "./assets/images/g.png";
 import Login from "./features/Login";
+
 
 const initialState = {
   status: "login",

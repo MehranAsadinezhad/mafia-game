@@ -18,7 +18,7 @@ export default function PlayerSide({ players, dispatch }) {
         <input
           ref={inp}
           type="text"
-          className="w-28 rounded-full bg-cyan p-2 text-center font-secondary text-light outline-none transition-all placeholder:text-orange focus:ring-2 focus:ring-orange"
+          className="w-28 rounded-full bg-gradient-to-t from-cyan to-sky-800 p-2 text-center font-secondary text-light outline-none transition-all placeholder:text-medium focus:ring-2 focus:ring-orange"
           placeholder="اسامی"
           onChange={(e) => {
             setName({ player: e.target.value, id: Date.now() });
