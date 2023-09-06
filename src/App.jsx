@@ -13,7 +13,7 @@ const initialState = {
   selectedId: "",
   allNamesRoles: [],
   selectedNameRole: "",
-  auth: false,
+  auth: null,
 };
 
 function reducer(state, action) {
@@ -22,7 +22,7 @@ function reducer(state, action) {
       return {
         ...state,
         auth: action.payload,
-        status: state.auth === true ? "setUp" : state.status,
+        status: action.payload === true ? "setUp" : state.status,
       };
     case "addPlayer":
       return { ...state, players: [...state.players, action.payload] };
@@ -74,7 +74,7 @@ function App() {
       allNamesRoles,
       selectedId,
       selectedNameRole,
-      users,
+      auth,
     },
     dispatch,
   ] = useReducer(reducer, initialState);
@@ -117,7 +117,7 @@ function App() {
               dispatch={dispatch}
             />
           )}
-          {status === "login" && <Login dispatch={dispatch} />}
+          {status === "login" && <Login dispatch={dispatch} auth={auth} />}
           {status === "start" && (
             <GodSheet
               status={status}

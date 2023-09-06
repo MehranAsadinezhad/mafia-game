@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Header from "./Header";
 import mask from "../assets/images/g.png";
 
-export default function Login({ dispatch }) {
+export default function Login({ dispatch, auth }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -41,18 +41,18 @@ export default function Login({ dispatch }) {
               onChange={(e) => setUsername(e.target.value)}
             ></input>
           </div>
-          <div className="flex flex-col gap-y-1">
-            <label className="font-secondary text-medium ">رمز عبور</label>
+          <div className="flex flex-col items-center gap-y-1">
+            <label className="font-secondary self-start text-medium ">رمز عبور</label>
             <input
               type="password"
               className="rounded-md bg-medium px-2 font-secondary outline-none transition-all focus:py-1 focus:ring-2 focus:ring-yellow-600"
               onChange={(e) => setPassword(e.target.value)}
             ></input>
+            {auth === false && (
+              alert("نام کاربری یا رمز عبور اشتباه است")
+            )}
           </div>
-          <button
-            type="submit"
-            className="mt-4 rounded-lg bg-cyan px-4 py-1 font-secondary text-lg text-medium focus:ring-2 focus:ring-orange"
-          >
+          <button className="mt-4 rounded-lg bg-cyan px-4 py-1 font-secondary font-semibold text-medium focus:ring-2 focus:ring-orange">
             ورود
           </button>
         </div>

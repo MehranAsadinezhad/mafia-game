@@ -9,10 +9,13 @@ export default function Header({ roles, dispatch }) {
     });
   }
   return (
-    <div className="flex items-center justify-center p-4">
-      <h1 className="ml-5 font-secondary text-4xl font-semibold tracking-widest text-medium">
-        پارتی گیم
-      </h1>
+    <div className="flex items-center justify-center p-4 gap-x-6">
+      <div className="flex flex-col gap-y-1">
+        <h1 className="font-secondary text-4xl font-semibold tracking-widest text-medium">
+          پارتی گیم
+        </h1>
+        <p className="text-gray-500 font-sans text-center text-sm font-semibold">:developed by <br></br>Mehran Asadinezhad</p>
+      </div>
       <img
         src={logo}
         alt="logo"
