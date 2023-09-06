@@ -12,6 +12,7 @@ export default function Login({ dispatch, auth }) {
     { username: "test", password: "123456" },
   ];
 
+
   return (
     <div className="flex h-screen w-full flex-col items-center bg-darkest">
       <Header />
@@ -38,19 +39,18 @@ export default function Login({ dispatch, auth }) {
             <input
               type="text"
               className="rounded-md bg-medium px-2 font-secondary outline-none transition-all focus:py-1 focus:ring-2 focus:ring-yellow-600"
-              onChange={(e) => setUsername(e.target.value)}
+              onChange={(e) => setUsername(e.target.value.toLocaleLowerCase())}
             ></input>
           </div>
           <div className="flex flex-col items-center gap-y-1">
-            <label className="font-secondary self-start text-medium ">رمز عبور</label>
+            <label className="self-start font-secondary text-medium ">
+              رمز عبور
+            </label>
             <input
               type="password"
               className="rounded-md bg-medium px-2 font-secondary outline-none transition-all focus:py-1 focus:ring-2 focus:ring-yellow-600"
               onChange={(e) => setPassword(e.target.value)}
             ></input>
-            {auth === false && (
-              alert("نام کاربری یا رمز عبور اشتباه است")
-            )}
           </div>
           <button className="mt-4 rounded-lg bg-cyan px-4 py-1 font-secondary font-semibold text-medium focus:ring-2 focus:ring-orange">
             ورود
