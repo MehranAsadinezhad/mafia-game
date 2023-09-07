@@ -1,10 +1,9 @@
-
 import { useEffect, useReducer } from "react";
 import SetUpGame from "./features/SetUpGame";
 import GodSheet from "./features/GodSheet";
 import mask from "./assets/images/g.png";
 import Login from "./features/Login";
-
+import { Toaster, toast } from "react-hot-toast";
 
 const initialState = {
   status: "login",
@@ -119,7 +118,29 @@ function App() {
               dispatch={dispatch}
             />
           )}
-          {status === "login" && <Login dispatch={dispatch} auth={auth} />}
+          {status === "login" && (
+            <>
+              <Login dispatch={dispatch} auth={auth} />
+              <Toaster
+                position="top-center"
+                gutter={12}
+                containerStyle={{ margin: "8px" }}
+                toastOptions={{
+                  error: {
+                    duration: 5000,
+                  },
+                  style: {
+                    fontSize: "16px",
+                    maxWidth: "300px",
+                    padding: "10px",
+                    backgroundColor: "#ced4da",
+                    color: "#343a40",
+                    fontFamily:"shabnam"
+                  },
+                }}
+              />
+            </>
+          )}
           {status === "start" && (
             <GodSheet
               status={status}

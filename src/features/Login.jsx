@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Header from "./Header";
 import mask from "../assets/images/g.png";
+import { toast } from "react-hot-toast";
 
 export default function Login({ dispatch, auth }) {
   const [username, setUsername] = useState("");
@@ -11,7 +12,6 @@ export default function Login({ dispatch, auth }) {
     { username: "jamal", password: "1333535" },
     { username: "test", password: "123456" },
   ];
-
 
   return (
     <div className="flex h-screen w-full flex-col items-center bg-darkest">
@@ -26,6 +26,9 @@ export default function Login({ dispatch, auth }) {
               e.username === username && e.password === password ? true : false,
             ),
           });
+          if(users.some((e)=>e.username && e.password === password === false)){
+            toast.error("نام کاربری یا رمز عبور اشتباه است")
+          }
         }}
       >
         <img
