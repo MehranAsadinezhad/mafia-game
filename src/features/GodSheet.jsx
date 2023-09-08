@@ -37,6 +37,7 @@ export default function GodSheet({
   const pause = () => {
     setPlaying(false);
     audio.current.pause();
+    audio.current.currentTime = 0;
   };
 
   const playFrog = () => {
@@ -47,6 +48,7 @@ export default function GodSheet({
   const pauseFrog = () => {
     setPlayingFrog(false);
     frogMusic.current.pause();
+    frogMusic.current.currentTime = 0;
   };
 
   const mafias = [
@@ -111,11 +113,11 @@ export default function GodSheet({
               <td className="my-2 flex">
                 <button
                   className={`ml-2 mr-2 font-secondary text-sm ${
-                    player.line ? "line-through" : ""
+                    player.line ? "line-through opacity-50" : ""
                   }
                    
                   ${dependece.includes(player.role) ? "text-orange" : ""}${
-                    mafias.includes(player.role) ? "text-red-600" : ""
+                    mafias.includes(player.role) ? "text-red-500" : ""
                   }`}
                   onClick={() =>
                     dispatch({
