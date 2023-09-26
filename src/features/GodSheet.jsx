@@ -68,6 +68,7 @@ export default function GodSheet({
     "شعبدهباز",
     "ماتادور",
     "مافیای ساده",
+    "مافیا",
     "مافیا ساده",
     "دکتر لکتر",
     "دکترلکتر",
@@ -75,7 +76,16 @@ export default function GodSheet({
     "گروگانگیر",
     "گروگان گیر",
   ];
-  const dependece = ["زودیاک", "نوستراداموس", "جک گنجشکه", "جکگنجشکه", "مستقل"];
+  const dependece = [
+    "زودیاک",
+    "نوستراداموس",
+    "نستراداموس",
+    "نوسترآداموس",
+    "نسترآداموس",
+    "جک گنجشکه",
+    "جکگنجشکه",
+    "مستقل",
+  ];
 
   return (
     <div className="flex flex-col justify-center">
@@ -139,28 +149,16 @@ export default function GodSheet({
                 </button>
               </td>
               <td>
-                <input
-                  className="my-2"
-                  type="checkbox"
-                ></input>
+                <input className="my-2" type="checkbox"></input>
               </td>
               <td>
-                <input
-                  className="my-2"
-                  type="checkbox"
-                ></input>
+                <input className="my-2" type="checkbox"></input>
               </td>
               <td>
-                <input
-                  className="my-2"
-                  type="checkbox"
-                ></input>
+                <input className="my-2" type="checkbox"></input>
               </td>
               <td>
-                <input
-                  className="my-2"
-                  type="checkbox"
-                ></input>
+                <input className="my-2" type="checkbox"></input>
               </td>
               <td className="w-[70px]">
                 <input className="my-2" type="checkbox"></input>
