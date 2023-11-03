@@ -182,12 +182,7 @@ export default function GodSheet({
             >
               {!playingFrog ? <FaMusic></FaMusic> : <FaPause />}
             </button>
-            <button
-              className="rounded-full bg-gradient-to-t from-cyan to-sky-800 p-2 font-secondary text-light outline-none focus:ring-2 active:ring-orange"
-              onClick={playing ? pause : play}
-            >
-              {!playing ? <FaMusic></FaMusic> : <FaPause />}
-            </button>
+            
             <button
               className="rounded-full bg-gradient-to-t from-cyan to-sky-800 p-2 font-secondary text-red-500 outline-none focus:ring-2 active:ring-orange"
               onClick={() => shotMusic.play()}
