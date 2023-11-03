@@ -1,6 +1,5 @@
 import { FaMusic, FaPause, FaGun, FaBomb } from "react-icons/fa6";
 import { useRef, useState } from "react";
-import music from "../lion.mp3";
 import secondMusic from "../frog.mp3";
 import bomb from "../bomb.mp3";
 import fakeBomb from "../fakeBomb.mp3";
@@ -12,7 +11,6 @@ export default function GodSheet({
   dispatch,
   selectedNameRole,
 }) {
-  const audio = useRef(new Audio(music));
   const frogMusic = useRef(new Audio(secondMusic));
   const fakeShotMusic = new Audio(fakeShot);
   const bombMusic = new Audio(bomb);
@@ -21,24 +19,11 @@ export default function GodSheet({
 
   const [day, setDay] = useState(0);
   const [detect, setDetect] = useState(2);
-  const [playing, setPlaying] = useState(false);
   const [playingFrog, setPlayingFrog] = useState(false);
-  const [check, setCheck] = useState(false);
 
   const sortedAllNamesRoles = allNamesRoles
     .slice()
     .sort((a, b) => a.role.localeCompare(b.role));
-
-  const play = () => {
-    setPlaying(true);
-    audio.current.play();
-  };
-
-  const pause = () => {
-    setPlaying(false);
-    audio.current.pause();
-    audio.current.currentTime = 0;
-  };
 
   const playFrog = () => {
     setPlayingFrog(true);
